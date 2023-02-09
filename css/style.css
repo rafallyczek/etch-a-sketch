@@ -13,7 +13,7 @@ body{
     width: 335px;
     height: 335px;
 }
-.container > div{
+.squareDiv{
     width: 20px;
     height: 20px;
     background-color: lightskyblue;
