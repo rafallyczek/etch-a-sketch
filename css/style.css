@@ -1,0 +1,20 @@
+body{
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #404040;
+}
+.container{
+    display: flex;
+    gap: 1px;
+    flex-wrap: wrap;
+    width: 335px;
+    height: 335px;
+}
+.container > div{
+    width: 20px;
+    height: 20px;
+    background-color: lightskyblue;
+}
