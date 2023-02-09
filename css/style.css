@@ -12,6 +12,7 @@ body{
     flex-wrap: wrap;
     width: 335px;
     height: 335px;
+    flex-shrink: 0;
 }
 .squareDiv{
     width: 20px;
