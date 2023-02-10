@@ -1,2 +1,2 @@
 # etch-a-sketch
-Project created while working with [The Odin Project](https://www.theodinproject.com/).
+Project created while working with [The Odin Project](https://www.theodinproject.com/). Simple painting app.
