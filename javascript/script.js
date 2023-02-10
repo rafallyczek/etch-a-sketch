@@ -65,3 +65,9 @@ function setGrid(){
     addEventListeners();
 
 }
+
+container.addEventListener("mouseleave",function(){
+    if(mouseDown){
+        mouseDown=false;
+    }
+});
