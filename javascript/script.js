@@ -1,10 +1,12 @@
 const container  = document.querySelector(".container");
 const resetButton = document.querySelector("#reset");
 const setGridButton = document.querySelector("#setGrid");
+const randomButton = document.querySelector("#random");
 let squareDivs;
 let mouseDown = false;
 let gridSize = 16;
 let size = 400 / gridSize;
+let randomMode = false;
 
 drawGrid();
 addEventListeners();
@@ -25,16 +27,25 @@ function addEventListeners(){
     squareDivs = document.querySelectorAll(".squareDiv");
 
     squareDivs.forEach(squareDiv => {
-        squareDiv.addEventListener("mousedown",function(){
+        squareDiv.addEventListener("mousedown",function(e){
+            e.preventDefault();
             mouseDown = true;
-            this.style.backgroundColor = "black";
+            if(!randomMode){
+                this.style.backgroundColor = "black";
+            }else{
+                this.style.backgroundColor = randomizeRGB();
+            }
         });
         squareDiv.addEventListener("mouseup",function(){
             mouseDown = false;
         });
         squareDiv.addEventListener("mouseover",function(){
             if(mouseDown){
-                this.style.backgroundColor = "black";
+                if(!randomMode){
+                    this.style.backgroundColor = "black";
+                }else{
+                    this.style.backgroundColor = randomizeRGB();
+                }
             }
         });
     });
@@ -71,3 +82,26 @@ container.addEventListener("mouseleave",function(){
         mouseDown=false;
     }
 });
+
+randomButton.addEventListener("click",triggerRandomMode);
+
+function triggerRandomMode(){
+
+    if(randomMode){
+        randomMode = false;
+        randomButton.textContent = "Randomize colors: OFF";
+    }else{
+        randomMode = true;
+        randomButton.textContent = "Randomize colors: ON";
+    }
+
+}
+
+function randomizeRGB(){
+
+    let r = Math.floor(Math.random()*256);
+    let g = Math.floor(Math.random()*256);
+    let b = Math.floor(Math.random()*256);
+    return `rgb(${r},${g},${b})`;
+
+}
