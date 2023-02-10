@@ -4,18 +4,19 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     background-color: #404040;
+    gap: 15px;
 }
 .container{
     display: flex;
-    gap: 1px;
     flex-wrap: wrap;
-    width: 335px;
-    height: 335px;
+    width: 320px;
+    height: 320px;
     flex-shrink: 0;
 }
 .squareDiv{
     width: 20px;
     height: 20px;
-    background-color: lightskyblue;
+    background-color: white;
 }
