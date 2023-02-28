@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+/* ---------------
+    GLOBAL STYLES
+   --------------- */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body{
     margin: 0;
     min-height: 100vh;
@@ -5,13 +15,73 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #404040;
+    background-color: #333;
+    font-family: "Lato";
     gap: 15px;
 }
+
+/* ---------------
+      TYPOGRAPHY
+   --------------- */
+
+button{
+    font-family: inherit;
+    color: white;
+    font-weight: 900;
+    font-size: 15px;
+}
+
+/* ---------------
+        LAYOUT
+   --------------- */
+
 .container{
     display: flex;
     flex-wrap: wrap;
     width: 400px;
     height: 400px;
     flex-shrink: 0;
+}
+
+/* ---------------
+     COMPONENTS
+   --------------- */
+
+button{
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #666;
+    text-shadow: 0px 0px 2px #000;
+}
+
+button:hover{
+    background-color: #555;
+}
+
+#random{
+    background-image: linear-gradient(
+        45deg,
+        rgba(255, 0, 0, 1) 0%,
+        rgba(255, 154, 0, 1) 10%,
+        rgba(208, 222, 33, 1) 20%,
+        rgba(79, 220, 74, 1) 30%,
+        rgba(63, 218, 216, 1) 40%,
+        rgba(47, 201, 226, 1) 50%,
+        rgba(28, 127, 238, 1) 60%,
+        rgba(95, 21, 242, 1) 70%,
+        rgba(186, 12, 248, 1) 80%,
+        rgba(251, 7, 217, 1) 90%,
+        rgba(255, 0, 0, 1) 100%
+    );
+    background-size: 500%;
+}
+
+#random:hover{
+    animation: btn-animation 5s infinite alternate;
+}
+
+@keyframes btn-animation{
+    0% {background-position: left;}
+    100% {background-position: right;}
 }
