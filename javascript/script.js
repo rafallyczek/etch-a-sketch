@@ -1,3 +1,7 @@
+/* ---------------
+      VARIABLES
+   --------------- */
+
 const container  = document.querySelector(".container");
 const resetButton = document.querySelector("#reset");
 const setGridButton = document.querySelector("#setGrid");
@@ -11,16 +15,9 @@ let randomMode = false;
 drawGrid();
 addEventListeners();
 
-function drawGrid(){
-
-    for(let i=0;i<gridSize**2;i++){
-        const squareDiv = document.createElement("div");
-        squareDiv.setAttribute("style",`width: ${size}px; height: ${size}px; background-color: white`);
-        squareDiv.classList.add("squareDiv");
-        container.appendChild(squareDiv);
-    }
-
-}
+/* ---------------
+      LISTENERS
+   --------------- */
 
 function addEventListeners(){
 
@@ -54,11 +51,42 @@ function addEventListeners(){
 
 resetButton.addEventListener("click",reset);
 
-function reset(){
-    squareDivs.forEach(squareDiv => squareDiv.style.backgroundColor = "white");
+setGridButton.addEventListener("click",setGrid);
+
+container.addEventListener("mouseleave",function(){
+    if(mouseDown){
+        mouseDown=false;
+    }
+});
+
+randomButton.addEventListener("click",triggerRandomMode);
+
+/* ---------------
+      FUNCTIONS
+   --------------- */
+
+function drawGrid(){
+
+    for(let i=0;i<gridSize**2;i++){
+        const squareDiv = document.createElement("div");
+        squareDiv.setAttribute("style",`width: ${size}px; height: ${size}px; background-color: white`);
+        squareDiv.classList.add("squareDiv");
+        container.appendChild(squareDiv);
+    }
+
 }
 
-setGridButton.addEventListener("click",setGrid);
+function triggerRandomMode(){
+
+    if(randomMode){
+        randomMode = false;
+        randomButton.textContent = "Randomize colors: OFF";
+    }else{
+        randomMode = true;
+        randomButton.textContent = "Randomize colors: ON";
+    }
+
+}
 
 function setGrid(){
 
@@ -77,26 +105,6 @@ function setGrid(){
 
 }
 
-container.addEventListener("mouseleave",function(){
-    if(mouseDown){
-        mouseDown=false;
-    }
-});
-
-randomButton.addEventListener("click",triggerRandomMode);
-
-function triggerRandomMode(){
-
-    if(randomMode){
-        randomMode = false;
-        randomButton.textContent = "Randomize colors: OFF";
-    }else{
-        randomMode = true;
-        randomButton.textContent = "Randomize colors: ON";
-    }
-
-}
-
 function randomizeRGB(){
 
     let r = Math.floor(Math.random()*256);
@@ -104,4 +112,8 @@ function randomizeRGB(){
     let b = Math.floor(Math.random()*256);
     return `rgb(${r},${g},${b})`;
 
+}
+
+function reset(){
+    squareDivs.forEach(squareDiv => squareDiv.style.backgroundColor = "white");
 }
