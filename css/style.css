@@ -20,6 +20,12 @@ body{
     gap: 15px;
 }
 
+p{
+    margin: .2em;
+    text-align: center;
+    color: white;
+}
+
 /* ---------------
       TYPOGRAPHY
    --------------- */
@@ -31,6 +37,15 @@ button{
     font-size: 1rem;
 }
 
+a{
+    color: #777;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #888;
+}
+
 /* ---------------
         LAYOUT
    --------------- */
@@ -40,6 +55,15 @@ button{
     flex-wrap: wrap;
     width: 400px; height: 400px;
     flex-shrink: 0;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    gap: 5px;
 }
 
 /* ---------------
