@@ -21,6 +21,7 @@ body{
 }
 
 p{
+    font-size: 1.3em;
     margin: .2em;
     text-align: center;
     color: white;
